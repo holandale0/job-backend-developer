@@ -9,9 +9,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 
-import br.com.concurrency.dao.TestDAO;
+import br.com.concurrency.dao.UserTestDAO;
 import br.com.concurrency.dao.UserDAO;
 import br.com.concurrency.model.User;
+import br.com.concurrency.model.UserTest;
 
 
 @Service
@@ -19,7 +20,7 @@ public class LoginServiceBean implements LoginService {
 
 	@Autowired private UserDAO dao;
 	
-	private TestDAO testDao = new TestDAO();
+	private UserTestDAO testDao = new UserTestDAO();
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
      
@@ -34,7 +35,7 @@ public class LoginServiceBean implements LoginService {
     
     	user = dao.authentication(username, password); 	
     	
-    	Thread.sleep(1000L);	
+    	Thread.sleep(1000L);	// simulação de tempo de espera
     	
     	logger.info("service - response - authentication");
         
@@ -44,11 +45,11 @@ public class LoginServiceBean implements LoginService {
     
     
     @Override
-    public User authenticationTest(String username, String password) throws InterruptedException {
+    public UserTest authenticationTest(String username, String password) throws InterruptedException {
     	
     	logger.info("service - request - authenticationTest");
     	
-    	User user = null;
+    	UserTest user = null;
     
     	user = testDao.authentication(username, password); 	
     	
@@ -81,11 +82,11 @@ public class LoginServiceBean implements LoginService {
     
     @Override
     @Async
-    public CompletableFuture<User> asyncAuthenticationTest(String username, String password) throws InterruptedException {
+    public CompletableFuture<UserTest> asyncAuthenticationTest(String username, String password) throws InterruptedException {
     	
     	logger.info("service - request - asyncAuthenticationTest");
     	
-    	User user = null;  	
+    	UserTest user = null;  	
     
     	user = testDao.authentication(username, password); 		
     	

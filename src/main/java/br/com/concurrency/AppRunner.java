@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import br.com.concurrency.model.User;
+import br.com.concurrency.model.UserTest;
 import br.com.concurrency.service.LoginService;
 
 import java.util.ArrayList;
@@ -30,16 +31,16 @@ public class AppRunner implements CommandLineRunner {
         
         long start = System.currentTimeMillis();
         
-        List<CompletableFuture<User>> lista = new ArrayList<CompletableFuture<User>>();
+        List<CompletableFuture<UserTest>> lista = new ArrayList<CompletableFuture<UserTest>>();
         
         for(int i = 0 ; i < 1000 ; i++) {
         	     	
 
-            CompletableFuture<User> jose = loginServiceBean.asyncAuthenticationTest("jose","123");
-            CompletableFuture<User> maria = loginServiceBean.asyncAuthenticationTest("maria","123");
-            CompletableFuture<User> joao = loginServiceBean.asyncAuthenticationTest("joao","123");
-            CompletableFuture<User> pedro = loginServiceBean.asyncAuthenticationTest("pedro","123");
-            CompletableFuture<User> carlos = loginServiceBean.asyncAuthenticationTest("carlos","123");
+            CompletableFuture<UserTest> jose = loginServiceBean.asyncAuthenticationTest("jose","123");
+            CompletableFuture<UserTest> maria = loginServiceBean.asyncAuthenticationTest("maria","123");
+            CompletableFuture<UserTest> joao = loginServiceBean.asyncAuthenticationTest("joao","123");
+            CompletableFuture<UserTest> pedro = loginServiceBean.asyncAuthenticationTest("pedro","123");
+            CompletableFuture<UserTest> carlos = loginServiceBean.asyncAuthenticationTest("carlos","123");
                       
             
             lista.add(jose);

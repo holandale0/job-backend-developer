@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.concurrency.model.User;
+import br.com.concurrency.model.UserTest;
 import br.com.concurrency.service.LoginService;
 
 
@@ -63,7 +64,7 @@ public class LoginController {
     		
     		logger.info("controller - request - authenticationTest");
 
-        	User user = loginService.authenticationTest(username, password);
+    		UserTest user = loginService.authenticationTest(username, password);
             if (user == null) {
                 return ResponseEntity.ok().body("fail");
             }
@@ -97,7 +98,7 @@ public class LoginController {
     
     
     @RequestMapping(value = "/api/asyncLoginTest/{username}/{password}")
-    public @ResponseBody CompletableFuture<User> asyncAuthenticationTest(@PathVariable("username") String username, @PathVariable("password") String password) throws InterruptedException {
+    public @ResponseBody CompletableFuture<UserTest> asyncAuthenticationTest(@PathVariable("username") String username, @PathVariable("password") String password) throws InterruptedException {
     	
     	logger.info("controller - request - asyncAuthenticationTest");
     	

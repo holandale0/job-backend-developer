@@ -8,16 +8,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.scheduling.annotation.Async;
 
 import br.com.concurrency.model.User;
+import br.com.concurrency.model.UserTest;
 
 public interface LoginService {
 	
 
 	User authentication(String username,String password) throws InterruptedException;
 	
-	User authenticationTest(String username,String password) throws InterruptedException;
+	UserTest authenticationTest(String username,String password) throws InterruptedException;
 	
 	CompletableFuture<User> asyncAuthentication(String username,String password) throws InterruptedException;
 	
-	CompletableFuture<User> asyncAuthenticationTest(String username,String password) throws InterruptedException;
+	CompletableFuture<UserTest> asyncAuthenticationTest(String username,String password) throws InterruptedException;
 
 }
