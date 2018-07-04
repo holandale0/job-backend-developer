@@ -158,7 +158,9 @@ Na classe principal do projeto(ConcurrencyApplication.java), foi incluída a ano
 
 Ainda na classe principal, foi criado um Bean chamado asyncExecutor, onde são definidas algumas regras para tratamento de chamadas assíncronas, como por exemplo o limite de threads simultâneas.
 
-A classe AppRunner.java foi criada com o objetivo de realizar um teste automático de 5000 requisições. Ela implementa a interface CommandLineRunner.  
+Na classe LoginServiceBean, os métodos que possuem a anotação @Async estão habilitados para realizar operações assíncronas. Estes métodos, diferentemente dos seus correspondentes síncronos, possuem o tipo de retorno CompletableFuture<User>.
+
+A classe AppRunner.java foi criada com o objetivo de realizar um teste automático de 5000 requisições. Ela implementa a interface CommandLineRunner. Dentro do método run() foi criado um teste que consiste em realizar 5000 chamadas do método asyncAuthenticationTest dentro de um laço for. Após efetuar todas as chamadas, retorna de uma só vez a resposta para cada uma das chamadas.
 
 
 
