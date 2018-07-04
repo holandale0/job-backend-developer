@@ -1,20 +1,18 @@
 package br.com.concurrency.service;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
 
 import br.com.concurrency.dao.TestDAO;
 import br.com.concurrency.dao.UserDAO;
 import br.com.concurrency.model.User;
-import br.com.concurrency.util.AsyncResponse;
+
 
 @Service
 public class LoginServiceBean implements LoginService {
